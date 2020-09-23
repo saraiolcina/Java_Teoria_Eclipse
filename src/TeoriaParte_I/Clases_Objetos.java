@@ -5,6 +5,7 @@ public class Clases_Objetos {
 	public static void main(String[] args) {
 		// PRIMERA CLASE: CLASES Y  OBJETOS 									23/09/2020
 
+		System.out.println("ESO");
 	}
 
 }
