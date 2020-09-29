@@ -74,10 +74,6 @@ public class Clases_Objetos {
 			System.out.println(c.FinalData());
 		}
 		
-		
-		
-		
->>>>>>> copiamaster
 	}
 
 }
