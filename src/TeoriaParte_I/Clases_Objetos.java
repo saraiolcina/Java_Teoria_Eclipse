@@ -83,6 +83,7 @@ public class Clases_Objetos {
 
 /*1. Creamos la clase Card (no ponemos public ya que al estar en el mismo fichero fuente, solo puede haber una clase con public, y es el main.*/
 
+//PRIMERA CLASE (BORRRAAAAAAAR)
 class Card{
 	
 	/*2. Definimos las variables de la clase Tarjeta. Podemos (o no) inicializarlas. Las creamos con "private" para que no se puedan modificar*/
