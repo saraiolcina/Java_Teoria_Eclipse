@@ -6,6 +6,8 @@ public class Clases_Objetos {
 		// PRIMERA CLASE: CLASES Y  OBJETOS 									23/09/2020
 
 		System.out.println("ESO");
+		
+	
 	}
 
 }
