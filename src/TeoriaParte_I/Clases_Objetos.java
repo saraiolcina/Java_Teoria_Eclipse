@@ -23,7 +23,7 @@ public class Clases_Objetos {
 		 * */	
 		
 		
-		/*4. Instanciamos tres objetos de la clase Tarjeta*/
+		/*4. Instanciamos tres objetos de la clase Card*/
 		//OPCIÓN 1 uno a uno:
 		/*Card client_1= new Card("Sarai Olcina",27, "Valencia");
 		Card client_2=new Card ("Dolores Gonzalez", 58, "Cuenca");
@@ -83,7 +83,7 @@ public class Clases_Objetos {
 
 /*1. Creamos la clase Card (no ponemos public ya que al estar en el mismo fichero fuente, solo puede haber una clase con public, y es el main.*/
 
-//PRIMERA CLASE (BORRRAAAAAAAR)
+//PRIMERA CLASE 
 class Card{
 	
 	/*2. Definimos las variables de la clase Tarjeta. Podemos (o no) inicializarlas. Las creamos con "private" para que no se puedan modificar*/
@@ -113,7 +113,7 @@ class Card{
 	
 	/*5. Primero: Creamos los métodos setters y getters de la clase Card.
 	 * Crearemos :
-	 	*2 getters: uno con el estado inicial y otro con el final (este último después de haber aplicado los setters). Siempre llevan return --> get.
+	 	*2 getters principales: uno con el estado inicial y otro con el final (este último después de haber aplicado los setters). Siempre llevan return --> get.
 	 	*4 setters: para definir el id, new_client, total_balance y monthly_balance (de momento). Siempre llevan void --->definen, no devuelven*/
 	
 	/*GETTER INICIAL:*/
