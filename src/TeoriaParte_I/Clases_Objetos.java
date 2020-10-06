@@ -1,7 +1,7 @@
 package TeoriaParte_I;
 
 import javax.swing.JOptionPane;
-
+import java.util.*;
 public class Clases_Objetos {
 
 	public static void main(String[] args) {
@@ -44,7 +44,7 @@ public class Clases_Objetos {
 		}		
 		
 		
-		//Setter y getter de new_client:
+		/*//Setter y getter de new_client:
 		for (Card c:clients) {
 			c.ask_new_client(JOptionPane.showInputDialog("Is new client? (Answer yes/no)"));
 		}
@@ -53,7 +53,7 @@ public class Clases_Objetos {
 		}*/
 		
 		//Setter y getter de other products:
-		for( Card c:clients){
+		/*for( Card c:clients){
 			c.ask_other_products(JOptionPane.showInputDialog("Client has other products? (Answer yes/no)"));
 		}
 		/*for (Card c:clients) {
@@ -62,7 +62,7 @@ public class Clases_Objetos {
 		
 		
 		//setter y getter de total balance:
-		for(Card c:clients) {
+		/*for(Card c:clients) {
 			c.ask_monthly_balance(Integer.parseInt(JOptionPane.showInputDialog("Introduce monthly balance: ")),Integer.parseInt(JOptionPane.showInputDialog("Introduce number of months: ")));
 		}
 		/*for (Card c:clients) {
@@ -70,13 +70,18 @@ public class Clases_Objetos {
 		}*/
 		
 		//GETTER FINAL
-		for(Card c:clients) {
+		/*for(Card c:clients) {
 			System.out.println(c.FinalData());
 		}
+		*/
 		
-		
-		
-		
+		//SETTER Y GETTER DE FECHA DE ALTA:
+		for( Card c:clients) {
+			c.askDate(2020, 10, 06);				//se pone la misma para simplificar, pero habría que preguntar para cada instancia con joptionpane ( en total 3joption para cada instancia)
+		}
+		for(Card c:clients) {
+			System.out.println(c.answerDate());
+		}
 	}
 
 }
@@ -96,6 +101,7 @@ class Card{
 	private int total_balance;
 	private int monthly_balance;
 	private static int idSiguiente=1;		//la creamos aquí para empezar a usarla desde el constructor. Queremos que la variable id vaya cambiando pero en base a una que sea fija (idSiguiente), por eso le ponemos static
+	private Date fecha_alta;
 	
 	/*3. Creamos el método constructor de la clase Card:
 	 	*Lleva el mismo nombre que la clase SIEMPRE.
@@ -173,6 +179,18 @@ class Card{
 	public String answer_monthly_balance() {
 		return "Total client´s balance: " + total_balance;
 	}
+	
+	//SETTER Y GETTER PARA FIJAR LA FECHA DE ALTA:
+	
+	public void askDate(int year, int month, int day) {
+		GregorianCalendar calendar=new GregorianCalendar(year, month-1, day);
+		fecha_alta=calendar.getTime();
+	}
+	public Date answerDate() {
+		return fecha_alta;
+	}
+	
+	
 	
 	//GETTER FINAL (podemos evitar todos los getter anteriores (o mo)):
 	public String FinalData() {
