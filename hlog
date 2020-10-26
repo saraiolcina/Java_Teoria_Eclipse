@@ -1,0 +1,53 @@
+[33mcommit 487e94d461bf17dabfc0bb5e2a2e57fb70a5508f[m[33m ([m[1;36mHEAD -> [m[1;32mcopiamaster[m[33m)[m
+Author: saraiolcina <sarai.olcina.g@gmail.com>
+Date:   Mon Oct 26 18:16:14 2020 +0100
+
+    ejercicio 1 DDR
+
+[33mcommit b6b6e50e848917d53f18a276a72aab7f476c3f9b[m[33m ([m[1;31morigin/copiamaster[m[33m)[m
+Author: saraiolcina <sarai.olcina.g@gmail.com>
+Date:   Thu Oct 8 18:46:58 2020 +0200
+
+    inicio operadores
+
+[33mcommit 8415b70e8d5e85c842a5946f329607f0952c4b47[m
+Author: saraiolcina <sarai.olcina.g@gmail.com>
+Date:   Tue Oct 6 19:59:06 2020 +0200
+
+    trabajo con las clases GregorianCalendar y Date del paquete java.util
+
+[33mcommit b0e8ecf0066d44561e54f083141d594101a78413[m
+Author: saraiolcina <sarai.olcina.g@gmail.com>
+Date:   Tue Oct 6 19:07:03 2020 +0200
+
+    repaso clases, objetos, constructor, setters y getters
+
+[33mcommit 50ee3a834645bcfeecb7f8f40c4c3e07373b2ef7[m
+Author: saraiolcina <sarai.olcina.g@gmail.com>
+Date:   Mon Oct 5 21:52:29 2020 +0200
+
+    review
+
+[33mcommit 03b33b04e9155da380c8beda20f64a65fecd92ff[m
+Author: saraiolcina <sarai.olcina.g@gmail.com>
+Date:   Tue Sep 29 19:44:55 2020 +0200
+
+    final changes saved on copiamaster
+
+[33mcommit 6d7ed7ee32bf62d5c0e6d9f4087f316482695715[m
+Author: saraiolcina <sarai.olcina.g@gmail.com>
+Date:   Tue Sep 29 19:25:36 2020 +0200
+
+    creamos clase y objetos de card. setters y getters
+
+[33mcommit ff2545d5c3e900e5c80f5b05261b8e4e499c260c[m
+Author: saraiolcina <sarai.olcina.g@gmail.com>
+Date:   Wed Sep 23 17:18:30 2020 +0200
+
+    se crean paquetes y clases vacias
+
+[33mcommit 142e5f5b072b25f8cc5e381e43be6474480680ea[m
+Author: saraiolcina <70972139+saraiolcina@users.noreply.github.com>
+Date:   Wed Sep 23 16:57:19 2020 +0200
+
+    Initial commit
