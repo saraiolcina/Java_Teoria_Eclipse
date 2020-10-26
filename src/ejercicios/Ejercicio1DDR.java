@@ -10,6 +10,7 @@ public class Ejercicio1DDR {
 		
 		titular2.ingresar(200);	
 		titular1.ingresar(-50);
+		titular1.retirar(300);
 		System.out.println(titular2.getCantidad());
 		System.out.println(titular1.getCantidad());
 		
@@ -66,15 +67,18 @@ class Cuenta{
 	}
 	
 	public void retirar(double cantidad) {
-		if(this.cantidad-cantidad<0) {
-			this.cantidad=0;
+		if(cantidad<0) {
+			this.cantidad+=0;
 		}
 		else {
-			this.cantidad-=cantidad;
-		}
-	}
-	
-	
+			if(this.cantidad-cantidad<0) {
+				this.cantidad=0;
+			}
+			else {
+				this.cantidad-=cantidad;
+			}
+		}		
+	}	
 	
 }
 
