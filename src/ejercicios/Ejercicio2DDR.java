@@ -70,7 +70,7 @@ public class Ejercicio2DDR {
 			
 	}
 	
-	/*Ene ste caso lo creo como String para que me retorne datos*/
+	/*En este caso lo creo como String para que me retorne datos*/
 	
 }
 
@@ -93,13 +93,18 @@ class Persona{
 	
 	public Persona() {
 		this("", 0, SEXO_DEFAULT,0,0);
-		generaDNI();
+		//generaDNI();					//no es necesario que aquí llamemos nuevamente al método para generar dni, pues el constructor que hemos fijado como
+										//"principal" (el que recibe todos los parámetros) ya se encarga de ello.
 	}
+	/*Con la instrucción this("", 0,...) se está invocando al constructor que recibe todos los parámetros para que sea él quién inicialice la variable, 
+	 * la diferencia está en que en vez de meter sus valores, meterá los del paréntesis, pero el this() llama en automático al constructor que más parámetros
+	 * recibe y asigna en automático los valores y métodos de esta constructor. para los valores del constructor que lo llama, en vez de ponerse los valores 
+	 * que tiene este constructor predeterminado, se pondrán las que le pasemos por los paréntesis.*/
 	
 	public Persona(String nombre, int edad, char sexo) {
 		this (nombre, edad, sexo, 0, 0);
 		comprobarSexo(sexo);
-		generaDNI();
+		//generaDNI();
 	}
 	
 	public Persona(String nombre, int edad, char sexo, double peso, double altura) {
@@ -120,13 +125,14 @@ class Persona{
 		}
 	}
 	
-	public boolean esMayorDeEdad() {		//no necesita ningún parámetro
+	public boolean esMayorDeEdad() {		
 		boolean mayorDeEdad=false;
-		if(edad>18) {
-			mayorDeEdad=true;
-		}
+		if(edad>18) 
+			mayorDeEdad=true;		
 		return mayorDeEdad;			
 	}
+	/*Este método no necesita ningún parámetro ya que siempre se le llama en algún otro método que usamos para fijar la edad (ya sea el set o cualquiera de 
+	 * los otros dos constructores). Al no recibir parámetros es más sencillo para luego llamarlo desde el mai (si no, no nos dejaría)*/
 	
 	private void generaDNI() {
 		Random r=new Random();		
