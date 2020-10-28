@@ -2,15 +2,76 @@ package ejercicios;
 
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 public class Ejercicio2DDR {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Persona ejemplo=new Persona();
 		
+		String nombre=JOptionPane.showInputDialog("Introduce el nombre: ");
+		int edad=Integer.parseInt(JOptionPane.showInputDialog("Introduce la edad: "));
+		String sexoPedido=JOptionPane.showInputDialog("Introduce sexo (H/M):");
+		char sexo=sexoPedido.charAt(0);
+		double altura=Double.parseDouble(JOptionPane.showInputDialog("Introduce la altura (en metros): "));
+		double peso=Double.parseDouble(JOptionPane.showInputDialog("Introduce el peso (en kilos): "));
+		
+		Persona persona1=new Persona(nombre, edad, sexo, peso, altura);
+		Persona persona2=new Persona("Marina", 26, 'M');
+		persona2.setPeso(49.2);
+		persona2.setAltura(1.65);
+		Persona persona3=new Persona();
+		persona3.setNombre("Jose Manuel");
+		persona3.setEdad(57);
+		persona3.setSexo('j');
+		persona3.setAltura(1.70);
+		persona3.setPeso(75.2);		
+		
+		System.out.println(persona1);
+		dimePeso(persona1);			//no nos pide el s.o.p xq ya viene en el mensaje de la función
+		System.out.println(dimeMayoriaEdad(persona1));		//en este caso si lo saco por pantalla porque el método no lo lleva
+		System.out.println(persona2);
+		dimePeso(persona2);
+		System.out.println(dimeMayoriaEdad(persona2));
+		System.out.println(persona3);
+		dimePeso(persona3);		
+		System.out.println(dimeMayoriaEdad(persona3));
 
+		
 	}
-
+	
+	public static void dimePeso(Persona p) {
+		int dimePeso=p.calcularIMC();
+		switch(dimePeso) {
+		case Persona.ALTO_PESO:
+			System.out.println("Tiene sobrepeso");
+			break;
+		case Persona.BAJO_PESO:
+			System.out.println("Tiene bajo peso");
+			break;
+		case Persona.PESO_IDEAL:
+			System.out.println("Está en su peso ideal");
+			break;
+		}
+	}
+	
+	/*Lo creo desde la clase del ejecutable pero fuera del main.
+	 * Le paso como parámetro una variable de tipo persona xq es la única forma que tengo de vincular este método con los métodos de la clase persona que quiero usar
+	 * a la variable p que creo le pido el método de la clase persona.
+	 * Tiene que ser void xq no acepta switch con distintas opciones*/
+	
+	public static String dimeMayoriaEdad(Persona p) {
+		boolean mayoriaEdad=p.esMayorDeEdad();
+		if(mayoriaEdad) {
+			return "Es mayor de edad";
+		}
+		else {
+			return "No es mayor de edad";
+		}
+			
+	}
+	
+	/*Ene ste caso lo creo como String para que me retorne datos*/
+	
 }
 
 class Persona{
@@ -23,6 +84,12 @@ class Persona{
 	private double altura;
 	
 	private final static char SEXO_DEFAULT='H';
+	public final static int PESO_IDEAL=-1;
+	public final static int BAJO_PESO=0;
+	public final static int ALTO_PESO=1;
+	
+	/*a las constantes del imc las pongo public xq luego las tenemos que llamar desde el main. Los valores de -1,0 y 1 se refieren al valor qde la función que queremos 
+	 * mostrar al usuario, xq el valor real oscila {20-25}*/
 	
 	public Persona() {
 		this("", 0, SEXO_DEFAULT,0,0);
@@ -53,6 +120,14 @@ class Persona{
 		}
 	}
 	
+	public boolean esMayorDeEdad() {		//no necesita ningún parámetro
+		boolean mayorDeEdad=false;
+		if(edad>18) {
+			mayorDeEdad=true;
+		}
+		return mayorDeEdad;			
+	}
+	
 	private void generaDNI() {
 		Random r=new Random();		
 		String numeroDni="";
@@ -65,7 +140,7 @@ class Persona{
 		int numeroLetra=r.nextInt(25);
 		String letraDni=generaLetraDni(numeroLetra);
 		numeroDni=numeroDni+letraDni;
-		System.out.println(numeroDni);
+		this.dni=numeroDni;
 		
 	}
 	
@@ -75,5 +150,64 @@ class Persona{
 		String letra=Character.toString(letraDni);
 		return letra;
 	}
+	
+	public int calcularIMC(){								//no necesita que le pasemos parámetros
+		int pesoFuncion=(int)(peso/(altura*altura));
+		if(pesoFuncion<20) {
+			return PESO_IDEAL;
+		}
+		else if(pesoFuncion>=20 && pesoFuncion<=25) {
+			return BAJO_PESO;
+		}
+		else {
+			return ALTO_PESO;
+		}		
+	}
+	
+	/*public String dimePeso(Persona p) {				//Se ha intentado crear desde aquí el método que devuelva el peso pero no nos deja.
+		int dimePeso=p.calcularIMC(peso, altura);
+		switch(dimePeso) {
+		case Persona.ALTO_PESO:
+			return "Tiene sobrepeso";
+			break;
+		case Persona.BAJO_PESO:
+			return "Está por debajo de su peso";
+			break;
+		case Persona.PESO_IDEAL:
+			return "Está en su peso ideal";
+			break;
+		}		
+	}*/
+	
+	public String toString() {
+		return "Datos de la persona:\n" +
+				"Nombre: " + nombre + " \n" +
+				"Edad: " + edad + " \n" +
+				"Sexo: " + sexo + " \n" +
+				"DNI: " + dni + " \n" +
+				"Peso: " + peso + " \n" +
+				"Altura: " + altura + " \n";
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre=nombre;
+	}
+	
+	public void setEdad(int edad) {
+		this.edad=edad;
+	}
+	
+	public void setSexo(char sexo) {
+		comprobarSexo(sexo);
+	}
+	
+	public void setAltura(double altura) {
+		this.altura=altura;
+	}
+	
+	public void setPeso(double peso) {
+		this.peso=peso;
+	} 
+	
 	
 }
